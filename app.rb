@@ -1,6 +1,5 @@
 require 'sinatra'
 require 'httparty'
-require 'pry'
 
   get '/:url' do
     "#{params[:url]}"

@@ -2,7 +2,7 @@
 "manifest_version": 2,
     "name": "Bit Longer",
     "description": "Expands bit.ly links on Twitter to full un-shortened links",
-    "version": "0.2",
+    "version": "0.3",
     "content_scripts": [
         {
             "matches": [

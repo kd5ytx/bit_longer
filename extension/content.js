@@ -31,8 +31,7 @@ for (var i = 0; i < elements.length; i++) {
   var pageContent = getContentByUrl(element.href, false, null);
   var matches = pageContent.match(/URL=(.*?)"/);
   var firstUrl = matches[1];
-  //var secondUrl = getContentByUrl("https://bitlonger.herokuapp.com?url=" + encodeURIComponent(firstUrl), false);
-  var secondUrl = getContentByUrl("http://localhost:4567", false, 'url=' + firstUrl);
+  var secondUrl = getContentByUrl("https://bitlonger.herokuapp.com", false, 'url=' + encodeURIComponent(firstUrl));
   if (secondUrl.indexOf('http') != -1) {
     element.innerHTML = secondUrl;
   }
@@ -43,6 +42,7 @@ function getContentByUrl(url, synch_request, params) {
   var urlToGet = url.replace('http://', 'https://');
   var xmlHttp = new XMLHttpRequest();
   xmlHttp.open("POST", urlToGet, synch_request); // false for synchronous request
+  xmlHttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
   xmlHttp.send(params);
   return xmlHttp.responseText;
 }
